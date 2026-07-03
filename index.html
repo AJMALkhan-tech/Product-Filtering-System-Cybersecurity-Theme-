@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>H4CK3R_SHOP — /root/tools/catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="topbar">
+<div class="topbar-left">
+<span class="topbar-logo">[ <span>0x</span>TOOLKITDB ]</span>
+<span class="topbar-path">
+<span class="seg">/root</span>/<span class="seg">tools</span>/<span class="seg">catalog</span>
+</span>
+</div>
+<div class="topbar-right">
+<span><span class="status-dot"></span>CONNECTED</span>
+<span>TUN0: 10.10.14.22</span>
+<span>VPN: ACTIVE</span>
+<span class="topbar-time" id="clock">--:--:--</span>
+</div>
+</div>
+<div class="layout">
+
+<aside class="sidebar">
+<div class="sidebar-section">
+      <div class="sidebar-label">FILESYSTEM</div>
+      <div class="tree-item"><span class="tree-folder">▶</span> /root</div>
+      <div class="tree-item tree-indent active"><span class="tree-folder">▼</span> tools</div>
+      <div class="tree-item tree-indent2 active"><span class="tree-file">►</span> catalog</div>
+      <div class="tree-item tree-indent2"><span class="tree-file">►</span> exploits</div>
+      <div class="tree-item tree-indent2"><span class="tree-file">►</span> payloads</div>
+      <div class="tree-item tree-indent"><span class="tree-folder">▶</span> wordlists</div>
+      <div class="tree-item tree-indent"><span class="tree-folder">▶</span> reports</div>
+      <div class="tree-item"><span class="tree-folder">▶</span> /opt</div>
+      <div class="tree-item"><span class="tree-folder">▶</span> /etc</div>
+      <div class="tree-item"><span class="tree-folder">▶</span> /tmp</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">CATEGORIES</div>
+      <div class="tree-item" onclick="filterCat('all')"><span class="tree-file">$</span> all_tools</div>
+      <div class="tree-item" onclick="filterCat('Recon')"><span class="tree-file">$</span> recon</div>
+      <div class="tree-item" onclick="filterCat('Exploit')"><span class="tree-file">$</span> exploit</div>
+      <div class="tree-item" onclick="filterCat('Web')"><span class="tree-file">$</span> web</div>
+      <div class="tree-item" onclick="filterCat('Password')"><span class="tree-file">$</span> password</div>
+      <div class="tree-item" onclick="filterCat('Forensics')"><span class="tree-file">$</span> forensics</div>
+      <div class="tree-item" onclick="filterCat('Defense')"><span class="tree-file">$</span> defense</div>
+      <div class="tree-item" onclick="filterCat('Wireless')"><span class="tree-file">$</span> wireless</div>
+      <div class="tree-item" onclick="filterCat('OS')"><span class="tree-file">$</span> os_images</div>
+      <div class="tree-item" onclick="filterCat('Vuln Scan')"><span class="tree-file">$</span> vuln_scan</div>
+    </div>
+    <div class="sidebar-stats">
+      <div class="sidebar-label">SYS MONITOR</div>
+      <div class="stat-row"><span>CPU</span><span class="val warn" id="cpu">--</span></div>
+      <div class="stat-row"><span>MEM</span><span class="val" id="mem">--</span></div>
+      <div class="stat-row"><span>NET</span><span class="val">↑ 2.1MB/s</span></div>
+      <div class="stat-row"><span>TARGETS</span><span class="val danger">3 LIVE</span></div>
+      <div class="stat-row"><span>SESSION</span><span class="val">root@kali</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="term-header"> 
+      <div class="term-prompt-line">
+        <span class="user">root</span><span style="color:var(--muted)">@</span><span class="host">kali</span>:<span style="color:var(--cyan)">~/tools/catalog</span> <span class="dollar">$</span> ./search_tools.sh --list-all
+      </div>
+      <div class="term-title">
+        <span class="bracket">[</span> CYBERSEC TOOL CATALOG <span class="bracket">]</span>
+      </div>
+      <div class="term-sub">
+        Initialized <span class="highlight">16 modules</span> · Database: <span class="highlight">tools.db v4.2.1</span> · Mode: <span class="highlight">READ/WRITE</span>
+      </div>
+    </div>
+
+    <!-- this is for Controls -->
+    <div class="controls-panel">
+      <div class="cmd-line">
+        <span class="cmd-prompt">grep -r</span>
+        <input class="cmd-input" id="searchInput" type="text" placeholder='&quot;tool_name&quot; ./catalog --ignore-case' autocomplete="off" aria-label="Search tools" spellcheck="false"/>
+      </div>
+      <div class="filter-row">
+        <div class="flag-group">
+          <span class="flag-label">--category</span>
+          <select class="flag-select" id="categoryFilter" aria-label="Filter by category">
+            <option value="all">*</option>
+          </select>
+        </div>
+        <div class="flag-group">
+          <span class="flag-label">--sort-by</span>
+          <select class="flag-select" id="sortOrder" aria-label="Sort by price">
+            <option value="default">default</option>
+            <option value="asc">price ASC</option>
+            <option value="desc">price DESC</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- this is for Results Bar -->
+    <div class="results-bar">
+      <span class="result-count" id="resultsCount">
+        <span class="label">OUTPUT:</span> <span class="num">--</span> results
+      </span>
+      <button class="clear-btn" id="clearBtn" aria-label="Clear all filters">
+        <span >RESET FLAGS</span>
+    </div>
+
+    <!--this is for  Grid -->
+    <div class="product-section">
+      <div id="productGrid" role="list" aria-live="polite"></div>
+
+      <!-- this is for emply stateb -->
+      <div id="emptyState" class="empty-state" role="status">
+        <pre class="empty-ascii">
+  ___  ____  __  __  ___  ____
+ ( _ )( ___)  \/  )/ _ \(  __)
+ / _ \ )__)  )    (( (_) ))__)
+(_) (_)(____)(_/\/\_)\___/(____)
+        </pre>
+        <p class="empty-msg"><span>ERROR:</span> No modules matched query. Try --wildcard or broaden flags.</p>
+      </div>
+    </div>
+
+    <!-- this is fior footer  -->
+    <div class="term-footer">
+      <div class="footer-status">
+        <span>STATUS: <span>ACTIVE</span></span>
+        <span>DB: <span>tools.db</span></span>
+        <span>USER: <span>root</span></span>
+      </div>
+      <span class="footer-exit">[q] QUIT SESSION</span>
+    </div>
+
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

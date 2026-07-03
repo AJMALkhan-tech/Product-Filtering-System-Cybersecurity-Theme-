@@ -1,0 +1,18 @@
+[
+  { "id": 1,  "name": "Kali Linux ISO 2024",        "category": "OS",          "price": 0.00,  "rating": 5.0, "icon": "💿", "description": "Penetration testing distro with 600+ pre-installed security tools." },
+  { "id": 2,  "name": "Nmap Network Scanner",        "category": "Recon",       "price": 0.00,  "rating": 4.9, "icon": "📡", "description": "Discover hosts and services on a network, build a network map." },
+  { "id": 3,  "name": "Metasploit Framework Pro",    "category": "Exploit",     "price": 15000, "rating": 4.8, "icon": "⚔️", "description": "Advanced open-source platform for developing and executing exploits." },
+  { "id": 4,  "name": "Wireshark Pro License",       "category": "Forensics",   "price": 299,   "rating": 4.7, "icon": "🔬", "description": "Deep packet inspection and real-time network traffic analysis." },
+  { "id": 5,  "name": "Burp Suite Professional",     "category": "Web",         "price": 449,   "rating": 4.9, "icon": "🕷️", "description": "Leading toolkit for web application security testing." },
+  { "id": 6,  "name": "Hashcat GPU Cracker",         "category": "Password",    "price": 0.00,  "rating": 4.6, "icon": "🔓", "description": "World's fastest password recovery utility using GPU acceleration." },
+  { "id": 7,  "name": "Aircrack-ng Suite",           "category": "Wireless",    "price": 0.00,  "rating": 4.5, "icon": "📶", "description": "Complete suite for WiFi network security assessment and WEP/WPA cracking." },
+  { "id": 8,  "name": "John the Ripper Pro",         "category": "Password",    "price": 199,   "rating": 4.4, "icon": "🗝️", "description": "Multi-platform password cracker supporting 10+ hash types." },
+  { "id": 9,  "name": "OWASP ZAP Scanner",           "category": "Web",         "price": 0.00,  "rating": 4.6, "icon": "🕸️", "description": "Automated security scanner for finding vulnerabilities in web apps." },
+  { "id": 10, "name": "Cobalt Strike Team Server",   "category": "Exploit",     "price": 5900,  "rating": 4.7, "icon": "💣", "description": "Adversary simulation and red team operations platform." },
+  { "id": 11, "name": "Snort IDS/IPS",               "category": "Defense",     "price": 0.00,  "rating": 4.5, "icon": "🛡️", "description": "Open-source intrusion detection and prevention system." },
+  { "id": 12, "name": "Maltego Intelligence",        "category": "Recon",       "price": 999,   "rating": 4.6, "icon": "🕵️", "description": "OSINT and graphical link analysis for digital forensics." },
+  { "id": 13, "name": "Shodan API Pro",              "category": "Recon",       "price": 899,   "rating": 4.8, "icon": "🌐", "description": "Search engine for Internet-connected devices and exposed services." },
+  { "id": 14, "name": "Volatility Memory Forensics", "category": "Forensics",   "price": 0.00,  "rating": 4.7, "icon": "🧠", "description": "Advanced memory forensics framework for incident response." },
+  { "id": 15, "name": "Nessus Professional",         "category": "Vuln Scan",   "price": 3990,  "rating": 4.8, "icon": "🔍", "description": "Industry-leading vulnerability scanner for networks and systems." },
+  { "id": 16, "name": "OpenVPN Business",            "category": "Defense",     "price": 1080,  "rating": 4.5, "icon": "🔒", "description": "Secure tunnel solution for enterprise network protection." }
+]
